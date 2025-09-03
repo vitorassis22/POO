@@ -10,4 +10,27 @@ if (num3 === num2){
 
     console.log('O num 3 e o  num 2 sao iguais');
 
+}else{
+
+    console.log('Os dois são diferentes');
+
+}
+
+
+console.log(somar(2,3))
+
+function somar(a, b){
+
+    return a+b;
+
+}
+
+switch (num2){
+
+    case 1: 
+    console.log('O numero é 1')
+    break;
+    case 5:
+    console.log('O numero é 5')
+    break;
 }
