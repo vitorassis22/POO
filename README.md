@@ -20,3 +20,11 @@
 - == compara o valor independente da variavel
 - === compara o valor desde que a variavel seja a mesma
 - switch [serve para chavear varios casos, economiza ifs e fors]
+
+
+---
+## Segunda aula de JS
+
+- Instalar prompt-sync no terminal do vs code: `npm install prompt-sync @types/prompt-sync` 
+    - serve para permitir que tenhamos dados síncronos de entrada do usuário
+- node (nome do arquivo) para usar a saida e entrada no terminal
