@@ -2,34 +2,19 @@
 
 const prompt = require('prompt-sync')({sigint: true}) //configuracao para usar o console no vscode
 console.log('\x1Bc')  //limpar o console
-const numA = Number(prompt('Digite um numero: '))
-const numB = Number(prompt('Digite outro numero para somar: '))
-const operacao = prompt('Escolha entre: soma, subtracao, divisao ou multiplicacao: ').toLocaleLowerCase() //.toLocaleLoweCase - faz tudo escrito virar minusculo
+let a = Number(prompt('Digite um numero: '))
+let operacao = prompt('Digite a operacao desejada (+, -, /, *): ')
+let b = Number(prompt('Digite outro numero: '))
 
-while(operacao == 'subtracao'){
+let dicOperacoes = new Map(); //new - traz pra memoria uma copia da classe criada (dicionario)
+dicOperacoes.set("+", function(a,b){ return a + b})//jeito 1 - funcao anonima
+dicOperacoes.set("-", subtrair)//jeito 2 - puxa a funcao existente
+dicOperacoes.set("/", function(a,b){return a / b})
+dicOperacoes.set("*", function(a,b){return a * b})
 
-  const sub = (numA - numB) 
-  console.log('O resultado e: ', sub)
-  break
-} 
+function subtrair(a,b)
+{
+  return a-b
+}
 
-while(operacao == 'soma'){
-
-  const soma = (numA + numB) 
-  console.log('O resultado e: ', soma)
-  break
-} 
-
-while(operacao == 'multiplicacao'){
-
-  const mult = (numA * numB) 
-  console.log('O resultado e: ', mult)
-  break
-} 
-
-while(operacao == 'divisao'){
-
-  const div = (numA / numB) 
-  console.log('O resultado e: ', div)
-  break
-} 
+console.log(dicOperacoes.get(operacao)(a,b))
