@@ -1,11 +1,10 @@
-// ## calculadora sem if e switch ##
+// ## (Aula 2) Exercicio 1 - calculadora sem if e switch ##
 
-const prompt = require('prompt-sync')({sigint: true})
-console.log('\x1Bc') 
+const prompt = require('prompt-sync')({sigint: true}) //configuracao para usar o console no vscode
+console.log('\x1Bc')  //limpar o console
 const numA = Number(prompt('Digite um numero: '))
 const numB = Number(prompt('Digite outro numero para somar: '))
-
-const operacao = prompt('Escolha entre: soma, subtracao, divisao ou multiplicacao: ').toLocaleLowerCase()
+const operacao = prompt('Escolha entre: soma, subtracao, divisao ou multiplicacao: ').toLocaleLowerCase() //.toLocaleLoweCase - faz tudo escrito virar minusculo
 
 while(operacao == 'subtracao'){
 
