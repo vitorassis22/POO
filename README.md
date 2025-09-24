@@ -51,6 +51,7 @@ class Pessoa (){
     }
 }
 ```
+
 - Método construtor em JS
 
 ```
@@ -61,7 +62,7 @@ class Pessoa{
     }
 
 }
-
+```
 - Exemplos de console.log
 
 ```
