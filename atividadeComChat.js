@@ -6,10 +6,12 @@ class cliente {
     }
 }
 class conta {
+
     constructor(numero, saldo = 0) {
         this.numero = numero
         this.saldo = saldo
         this.historico = []
+
     }
     depositar(valor) {
         if (valor < 0) {
@@ -34,8 +36,8 @@ class conta {
         }
         this.saldo -= valor
         contaDestino.saldo += valor
-        this.historico.push("Transferencia feita de R$: " + valor)
-        contaDestino.historico.push('Transferencia recebida de R$: ' + valor)
+        this.historico.push("Transferencia feita de R$: " + valor + " para conta " + contaDestino.numero)
+        contaDestino.historico.push('Transferencia recebida de R$: ' + valor + " de conta " + this.numero)
 
     }
     extrato() {
@@ -72,7 +74,7 @@ class banco {
 
 }
 
-banco = new banco("zapGPT")
+banco = new banco("bancoGPT")
 
 agencia1 = new agencia(1)
 
