@@ -22,9 +22,24 @@
                     <font>Novo Cadastro</font>
                 </h2>
             </div>
-            <div class="meiobaixo"></div>
+            <div class="meiobaixo">
+                <div class="nome">
+                    <p>Preencha os dados cadastrais abaixo</p><br>
+                    <form id="frm1" action="/atividade.js">
+                        Nome*: <input type="text" name="fname"><br><br> CPF*: <input type="text" name="lname"><br><br>
+                        <input type="button" onclick="myFunction()" value="Submit">
+                    </form>
+
+                    <script>
+                        function myFunction() {
+                            document.getElementById("frm1").submit();
+                        }
+                    </script>
+                </div>
+            </div>
+            <div class="foot"></div>
         </div>
-        <div class="foot"></div>
+
     </div>
 </div>
 
