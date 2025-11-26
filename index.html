@@ -1,48 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
+<html lang="pt-BR">
+  <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BancoConfiavel</title>
+    <title>Sistema Bancário</title>
     <link rel="stylesheet" href="style.css" />
-</head>
-<div class="box">
-    <div class="container">
-        <div class="head">
-            <div class="nomeSite">
-                <h1>
-                    <font color="white">Banco Confiavel</font>
-                </h1>
-            </div>
+  </head>
+
+  <body>
+    <header>
+      <h1>Nubank Pro Max 2</h1>
+    </header>
+
+    <main>
+      <section class="bloco">
+        <h2>Informações do Cliente</h2>
+        <div id="clienteInfo">
+          <p>Nome: <span id="nomeCliente">Mauro</span></p>
+          <p>CPF: <span id="cpfCliente">123.456.789-00</span></p>
+          <p>Conta Nº: <span id="numeroConta">1</span></p>
+          <p>Saldo Atual: R$ <span id="saldoConta">500</span></p>
         </div>
-        <div class="corpo">
-            <div class="meiocima">
-                <h2>
-                    <font>Novo Cadastro</font>
-                </h2>
-            </div>
-            <div class="meiobaixo">
-                <div class="nome">
-                    <p>Preencha os dados cadastrais abaixo</p><br>
-                    <form id="frm1" action="/atividade.js">
-                        Nome*: <input type="text" name="fname"><br><br> CPF*: <input type="text" name="lname"><br><br>
-                        <input type="button" onclick="myFunction()" value="Submit">
-                    </form>
+      </section>
 
-                    <script>
-                        function myFunction() {
-                            document.getElementById("frm1").submit();
-                        }
-                    </script>
-                </div>
-            </div>
-            <div class="foot"></div>
+      <section class="bloco">
+        <h2>Ações da Conta</h2>
+
+        <div class="acoes">
+          <input
+            type="number"
+            id="valorOperacao"
+            placeholder="Valor da operação"
+          />
+
+          <button onclick="depositar()">Depositar</button>
+          <button onclick="sacar()">Sacar</button>
+          <button onclick="transferir()">Transferir</button>
         </div>
+      </section>
 
-    </div>
-</div>
-
-<body></body>
-
+      <section class="bloco">
+        <h2>Extrato</h2>
+        <div id="extrato" class="extrato"></div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>

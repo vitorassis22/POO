@@ -1,50 +1,81 @@
 * {
-    padding: 0px;
-    margin: 0px;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
 }
 
-.box {
-    width: 600px;
-    height: 750px;
+body {
+    background: #f3f3f3;
+    color: #333;
 }
 
-.container {
-    width: 600px;
-    height: 355px;
-    background-color: aqua;
+header {
+    background: purple;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+main {
+    width: 80%;
+    margin: auto;
+}
+
+.bloco {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0002;
+}
+
+h2 {
+    color: purple;
+    margin-bottom: 10px;
+}
+
+.acoes {
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
+    gap: 10px;
 }
 
-.head {
-    width: 100%;
-    height: 50px;
-    background-color: black;
+.acoes input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 15px;
+    background: purple;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: purple;
+}
+
+.extrato {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+}
+
+.extrato p {
+    margin-bottom: 5px;
+}
+
+footer {
     text-align: center;
-}
-
-.corpo {
-    width: 100%;
-    height: 5%;
-    text-align: center;
-    margin-top: 20px;
-    font-size: 20px;
-}
-
-.meiobaixo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-top: 20px;
-}
-
-.foot {
-    margin-top: 20px;
-    width: 100%;
-    height: 50px;
-    background-color: red;
+    padding: 20px;
+    color: #555;
 }
