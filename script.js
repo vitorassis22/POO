@@ -7,7 +7,13 @@ class cliente {
         this.conta = null;
     }
 }
-
+class adm {
+    constructor(login, senha){
+        this.login = login
+        this.senha = senha
+    
+    }
+}
 class conta {
     constructor(numero, saldo = 0) {
         this.numero = numero;

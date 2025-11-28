@@ -1,0 +1,229 @@
+/* Reset e configurações básicas */
+@font-face {
+  font-family: 'Valorant.ttf';
+  src: url('C:/Users/vitor.assis_estudant.C111101/Desktop/atividade/banco/Valorant.ttf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Valorant.ttf', Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f3f3f3;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: #820ad1; /* Roxo Nubank */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.user-welcome {
+    font-size: 0.9rem;
+    margin-top: 5px;
+    opacity: 0.9;
+}
+
+main {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    flex: 1;
+}
+
+/* Animações e Controle de Telas */
+.screen {
+    display: none; /* Telas ocultas por padrão */
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.screen.active {
+    display: block; /* Apenas a tela ativa aparece */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Blocos de Conteúdo */
+.bloco {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #820ad1;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+h3 {
+    color: #555;
+    font-size: 1.1rem;
+    margin-top: 15px;
+}
+
+/* Estilos de Formulário */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #820ad1;
+    outline: none;
+}
+
+/* Botões */
+.btn-custom {
+    padding: 12px 20px;
+    background: #820ad1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.btn-custom:hover {
+    background: #6e06b3;
+}
+
+.btn-secondary-custom {
+    background: #666;
+    margin-top: 10px;
+}
+
+.btn-secondary-custom:hover {
+    background: #444;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid #820ad1;
+    color: #820ad1;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.btn-outline:hover {
+    background: #f3e5f5;
+}
+
+/* Ações do Cliente */
+.acoes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.acoes-input {
+    grid-column: 1 / -1;
+}
+
+/* Extrato e Listas */
+.scroll-box {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+}
+
+.list-item {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+}
+
+.list-item:last-child {
+    border-bottom: none;
+}
+
+.badge-type {
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-right: 5px;
+    color: white;
+}
+.bg-deposito { background-color: #28a745; }
+.bg-saque { background-color: #dc3545; }
+.bg-transferencia { background-color: #007bff; }
+
+.logout-link {
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Tabs para Login/Cadastro */
+.auth-toggle {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+.auth-tab {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    color: #666;
+}
+.auth-tab.active {
+    color: #820ad1;
+    border-bottom: 2px solid #820ad1;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #555;
+    background-color: #e9ecef;
+    margin-top: auto;
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nubank Pro Max 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Nubank Pro Max 2</h1>
+        <div id="headerUserInfo" style="display: none;">
+            <div class="user-welcome">Olá, <span id="headerUserName">Usuario</span></div>
+            <a class="logout-link" onclick="logout()">Sair</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- ================= TELA 1: LOGIN E CADASTRO ================= -->
+        <div id="screen-login" class="screen active">
+            <div class="bloco" style="max-width: 400px; margin: auto;">
+                <div class="auth-toggle">
+                    <div class="auth-tab active" onclick="toggleAuth('login')">Login</div>
+                    <div class="auth-tab" onclick="toggleAuth('cadastro')">Cadastro</div>
+                </div>
+
+                <!-- Formulário de Login -->
+                <div id="form-login">
+                    <h2>Acessar Conta</h2>
+                    <div class="form-group">
+                        <label>Login (CPF ou 'admin')</label>
+                        <input type="text" id="loginUser" placeholder="000.000.000-00">
+                    </div>
+                    <div class="form-group">
+                        <label>Senha</label>
+                        <input type="password" id="loginPass" placeholder="******">
+                    </div>
+                    <button class="btn-custom" onclick="fazerLogin()">Entrar</button>
+                    <p class="text-center mt-3" style="font-size: 0.8rem; color: #777;">
+                        Dica Admin: User: admin / Senha: admin
+                    </p>
+                </div>
+
+                <!-- Formulário de Cadastro -->
+                <div id="form-cadastro" style="display: none;">
+                    <h2>Nova Conta</h2>
+                    <div class="form-group">
+                        <label>Nome Completo</label>
+                        <input type="text" id="cadNome">
+                    </div>
+                    <div class="form-group">
+                        <label>CPF</label>
+                        <input type="text" id="cadCpf" placeholder="000.000.000-00">
+                    </div>
+                    <div class="form-group">
+                        <label>Senha</label>
+                        <input type="password" id="cadSenha">
+                    </div>
+                    <div class="form-group">
+                        <label>Agência</label>
+                        <select id="cadAgenciaSelect">
+                            <!-- Preenchido via JS -->
+                        </select>
+                    </div>
+                    <button class="btn-custom" onclick="cadastrarCliente()">Criar Conta</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= TELA 2: CLIENTE (A original adaptada) ================= -->
+        <div id="screen-cliente" class="screen">
+            <section class="bloco">
+                <h2>Minha Conta</h2>
+                <div id="clienteInfo">
+                    <p><strong>Titular:</strong> <span id="nomeCliente">Nome</span></p>
+                    <p><strong>CPF:</strong> <span id="cpfCliente">000.000.000-00</span></p>
+                    <p><strong>Agência:</strong> <span id="agenciaCliente">000</span> | <strong>Conta:</strong> <span id="numeroConta">0</span></p>
+                    <p style="font-size: 1.2rem; margin-top: 10px;">Saldo Atual: <strong style="color: #820ad1;">R$ <span id="saldoConta">0,00</span></strong></p>
+                </div>
+            </section>
+
+            <section class="bloco">
+                <h2>Operações</h2>
+                <div class="form-group acoes-input">
+                    <input type="number" id="valorOperacao" placeholder="R$ 0,00" />
+                </div>
+                
+                <div class="acoes-grid">
+                    <button class="btn-custom" onclick="depositar()" style="background: #28a745;">Depositar</button>
+                    <button class="btn-custom" onclick="sacar()" style="background: #dc3545;">Sacar</button>
+                </div>
+                
+                <h3 style="margin-top: 20px;">Transferência</h3>
+                <div class="form-group">
+                    <input type="text" id="cpfDestino" placeholder="CPF do destinatário">
+                </div>
+                <button class="btn-custom" onclick="transferir()">Transferir Valor</button>
+            </section>
+
+            <section class="bloco">
+                <h2>Extrato</h2>
+                <div id="extrato" class="scroll-box">
+                    <p class="text-muted text-center">Nenhuma movimentação recente.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= TELA 3: ADMINISTRADOR ================= -->
+        <div id="screen-admin" class="screen">
+            <section class="bloco">
+                <h2>Painel Administrativo</h2>
+                <p>Bem-vindo, Administrador. Aqui você tem visão total do banco.</p>
+            </section>
+
+            <div class="row">
+                <!-- Coluna Esquerda: Gestão -->
+                <div class="col-md-6">
+                    <section class="bloco">
+                        <h2>Gerenciar Agências</h2>
+                        <div class="form-group">
+                            <label>Número da Nova Agência</label>
+                            <input type="number" id="novaAgenciaNum" placeholder="Ex: 002">
+                        </div>
+                        <button class="btn-custom" onclick="criarAgencia()">Criar Agência</button>
+
+                        <h3 class="mt-4">Agências Existentes</h3>
+                        <div id="listaAgencias" class="scroll-box" style="max-height: 150px;">
+                            <!-- Lista via JS -->
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Coluna Direita: Relatórios -->
+                <div class="col-md-6">
+                    <section class="bloco">
+                        <h2>Monitoramento Global</h2>
+                        <p class="text-muted" style="font-size: 0.9rem;">Todas as transações do sistema.</p>
+                        <div id="transacoesGlobais" class="scroll-box">
+                            <!-- Lista via JS -->
+                        </div>
+                        <button class="btn-outline w-100 mt-2" onclick="atualizarAdminUI()">Atualizar Dados</button>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        &copy; 2025 Nubank Pro Max 2 - Sistema Bancário
+    </footer>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Arquivo JS Personalizado -->
+    <script src="script.js"></script>
+</body>
+</html>
